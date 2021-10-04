@@ -9,6 +9,10 @@ node_modules
 # testing
 /coverage
 
+# other repositories
+/client/.git
+/server/.git
+
 # production
 /client/dist
 client/dist
