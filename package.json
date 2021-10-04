@@ -1,0 +1,46 @@
+{
+  "name": "idea-net",
+  "version": "1.0.0",
+  "description": "Connect with people around the globe :)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server/server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "engines": {
+    "node": "16.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makyfj/IdeaNet.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongoose",
+    "jwt"
+  ],
+  "author": "makyfj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makyfj/IdeaNet/issues"
+  },
+  "homepage": "https://github.com/makyfj/IdeaNet#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^6.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0"
+  }
+}
