@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL = "http://localhost:5000";
+const URL = process.env.IDEA_NET_SERVER;
 
 export const getIdeas = createAsyncThunk("ideas/getIdeas", async (thunkAPI) => {
   try {
