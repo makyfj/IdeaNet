@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
@@ -17,6 +18,11 @@ const app = express();
 // only in development code
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
+}
+
+const __dirname = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/")));
 }
 
 // body parser -- middleware
