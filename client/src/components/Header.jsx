@@ -9,6 +9,7 @@ import {
   IconButton,
   MenuItem,
   Menu,
+  Link as UILink,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -50,16 +51,20 @@ const Header = () => {
       <AppBar position="static" elevation={1}>
         <Toolbar>
           <Typography
-            variant="h4"
+            variant="h3"
             component="div"
             color="text.secondary"
-            sx={{ flexGrow: 1 }}
+            sx={{ flexGrow: 1, fontWeight: "bold" }}
           >
             <Link to="/">Home</Link>
           </Typography>
           {userInfo.name && userInfo.email ? (
             <Box sx={{ display: "flex" }}>
-              <Typography variant="h5" sx={{ pt: 2 }} color="text.secondary">
+              <Typography
+                variant="h5"
+                sx={{ pt: 2, mr: 1, fontWeight: "bold" }}
+                color="secondary"
+              >
                 Hi! {userInfo.name}
               </Typography>
               <IconButton
@@ -87,9 +92,11 @@ const Header = () => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose}>
-                  <Button variant="contained">
-                    <Link to="/profile">Profile</Link>
-                  </Button>
+                  <Typography variant="h5">
+                    <UILink component={Link} underline="none" to="/profile">
+                      Profile
+                    </UILink>
+                  </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>
                   <Button onClick={logoutHandler} variant="contained">
@@ -99,13 +106,17 @@ const Header = () => {
               </Menu>
             </Box>
           ) : (
-            <Box>
-              <Button color="primary" size="large">
+            <Box sx={{ display: "flex" }}>
+              <Typography
+                variant="h5"
+                color="secondary"
+                sx={{ fontWeight: "bold", pr: 3 }}
+              >
                 <Link to="/register">Register</Link>
-              </Button>
-              <Button color="inherit" size="large">
+              </Typography>
+              <Typography variant="h5" sx={{ fontWeight: "bold" }}>
                 <Link to="/login">Login</Link>
-              </Button>
+              </Typography>
             </Box>
           )}
         </Toolbar>

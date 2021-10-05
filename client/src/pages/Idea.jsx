@@ -26,19 +26,14 @@ const Idea = ({ match }) => {
 
   useEffect(() => {
     dispatch(getIdeaById(ideaId));
-
-    setTitle(idea.title);
-    setDescription(idea.description);
   }, [dispatch, isSuccess, ideaId]);
 
   const updateIdeaHandler = (e) => {
     e.preventDefault();
     dispatch(updateIdea({ ideaId, title, description }));
     dispatch(clearIdea());
-    ideaId = match.params;
-    dispatch(getIdeaById(ideaId));
-    setTitle(idea.title);
-    setDescription(idea.description);
+    dispatch(getIdeas());
+    history.push("/");
   };
 
   const deleteIdeaHandler = (e) => {
@@ -61,8 +56,14 @@ const Idea = ({ match }) => {
       >
         One of our best ideas :)
       </Typography>
-      <Typography align="center" sx={{ mb: 2 }}>
-        Idea owned by: {idea.userName}
+      <Typography align="center" sx={{ mb: 2 }} variant="h6">
+        <b>Idea owned by:</b> {idea.userName}
+      </Typography>
+      <Typography sx={{ mb: 2, ml: 10, mr: 10 }} variant="h6">
+        <b>Initial idea:</b> {idea.title}
+      </Typography>
+      <Typography sx={{ mb: 2, ml: 10, mr: 10 }} variant="h6">
+        <b>Initial description:</b> {idea.description}
       </Typography>
       <Stack direction="row" justifyContent="center" alignItems="center">
         <form>

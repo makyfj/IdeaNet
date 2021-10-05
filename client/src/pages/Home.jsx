@@ -3,6 +3,7 @@ import { Box, Typography, Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import IdeaCard from "../components/IdeaCard";
 import AddIdea from "../components/AddIdea";
+import Loader from "../components/Loader";
 import {
   clearIdea,
   clearState,
@@ -54,7 +55,19 @@ const Home = () => {
       >
         Ideas from community members
       </Typography>
-      {isSuccess ? <IdeaCard ideas={ideas} /> : <p>Not ideas</p>}
+      {isError && (
+        <Typography variant="h4" color="error" align="center">
+          {errorMessage}
+        </Typography>
+      )}
+      {isFetching && <Loader />}
+      {isSuccess ? (
+        <IdeaCard ideas={ideas} />
+      ) : (
+        <Typography variant="h4" align="center">
+          Empty ideas :(
+        </Typography>
+      )}
     </Box>
   );
 };

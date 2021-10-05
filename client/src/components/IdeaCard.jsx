@@ -26,13 +26,24 @@ const IdeaCard = ({ ideas }) => {
       {ideas.map((idea, index) => (
         <Card elevation={2} key={index}>
           <CardContent>
-            <Typography variant="h5">{idea.title}</Typography>
-            <Typography variant="body1">{idea.description}</Typography>
-            <Typography variant="body2">{idea.postedAt}</Typography>
+            <Typography
+              variant="h5"
+              color="secondary"
+              sx={{ fontWeight: "bold" }}
+            >
+              {idea.title}
+            </Typography>
+            <Typography variant="body1" sx={{ mt: 2 }}>
+              {idea.description}
+            </Typography>
+            <Typography variant="body2" sx={{ mt: 2 }}>
+              <b>Posted on: </b>
+              {idea.postedAt.split("T")[0]}
+            </Typography>
           </CardContent>
           <CardActions>
-            <Typography align="right">
-              User:{" "}
+            <Typography align="right" sx={{ ml: 8 }}>
+              <b>Idea by:</b>{" "}
               <UILink
                 component={Link}
                 to={`/ideas/${idea._id}`}

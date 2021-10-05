@@ -12,3 +12,7 @@ A place to share your ideas with the planet :)
 
 ## Patters
 Following MVC Controller Pattern
+
+## Todo
+- Comments
+- Upvote 
